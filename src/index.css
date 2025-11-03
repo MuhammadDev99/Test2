@@ -1,4 +1,9 @@
+/* Add this line at the top */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
 body {
-    background-color: black;
+    background-color: rgb(8, 10, 13);
     color: white;
+    /* Optional: You can set the default font for the whole app here */
+    font-family: "Inter", sans-serif;
 }

@@ -2,6 +2,7 @@ import "./App.css"
 import { useEffect } from "react"
 import { TodoControls } from "./components/TodoControls"
 import { TodoItem } from "./components/TodoItem"
+import { Footer } from "./components/Footer"
 import { todos, editedTodoId, editedTodoText, updateTodoContent } from "./store/todos"
 
 const TODO_LOCAL_STORAGE_KEY = "Todos"
@@ -30,14 +31,17 @@ function App() {
     }, [editedTodoId.value])
 
     return (
-        <div className="todos">
-            <TodoControls />
-            <div className="todosItems">
-                {todos.value.map((todo) => (
-                    <TodoItem key={todo.id} todo={todo} />
-                ))}
+        <>
+            <div className="todos">
+                <TodoControls />
+                <div className="todosItems">
+                    {todos.value.map((todo) => (
+                        <TodoItem key={todo.id} todo={todo} />
+                    ))}
+                </div>
             </div>
-        </div>
+            <Footer />
+        </>
     )
 }
 
