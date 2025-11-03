@@ -1,30 +1,43 @@
-import { useState } from "react"
-import reactLogo from "./assets/react.svg"
-import viteLogo from "/vite.svg"
 import "./App.css"
+import { useEffect } from "react"
+import { TodoControls } from "./components/TodoControls"
+import { TodoItem } from "./components/TodoItem"
+import { todos, editedTodoId, editedTodoText, updateTodoContent } from "./store/todos"
+
+const TODO_LOCAL_STORAGE_KEY = "Todos"
 
 function App() {
-    const [count, setCount] = useState(0)
+    // Effect for syncing todos to localStorage
+    useEffect(() => {
+        localStorage.setItem(TODO_LOCAL_STORAGE_KEY, JSON.stringify(todos.value))
+    }, [todos.value])
+
+    // Effect to handle clicks outside the editing input
+    useEffect(() => {
+        if (editedTodoId.value === null) return
+
+        const handleOutsideClick = (e: MouseEvent) => {
+            const editingItem = document.querySelector(".todoItem.editing")
+            if (editingItem && !editingItem.contains(e.target as Node)) {
+                updateTodoContent(editedTodoId.value!, editedTodoText.value)
+                editedTodoId.value = null
+            }
+        }
+        document.addEventListener("mousedown", handleOutsideClick)
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick)
+        }
+    }, [editedTodoId.value])
 
     return (
-        <>
-            <div>
-                <a href="https://vite.dev" target="_blank">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank">
-                    <img src={reactLogo} className="logo react" alt="React logo" />
-                </a>
+        <div className="todos">
+            <TodoControls />
+            <div className="todosItems">
+                {todos.value.map((todo) => (
+                    <TodoItem key={todo.id} todo={todo} />
+                ))}
             </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">Clicffffffk on the Vite and React logos to learn more</p>
-        </>
+        </div>
     )
 }
 

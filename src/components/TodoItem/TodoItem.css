@@ -1,0 +1,146 @@
+/* ------------------------------- */
+/*      Items Section              */
+/* ------------------------------- */
+
+.todosItems {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.todoItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #2a2c37;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #44475a;
+    transition: all 0.2s;
+    height: 2rem;
+}
+.todoItem:hover {
+    transform: translateY(-2px);
+    border-color: #5c5f72;
+}
+
+.todoItem > * {
+    height: 100%;
+}
+
+/* --- CORRECTED: Fully Custom Checkbox --- */
+.isCompletedCheckbox {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    background-color: transparent;
+    font: inherit;
+    width: 1.2em;
+    height: 1.2em;
+    position: relative;
+    cursor: pointer;
+    border: 0.15em solid #44475a;
+    border-radius: 4px;
+    transition: all 0.1s ease-in-out;
+    align-self: center;
+}
+
+.isCompletedCheckbox:hover {
+    border-color: #7a7a8c;
+}
+
+.isCompletedCheckbox::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0.3em;
+    height: 0.6em;
+    border-style: solid;
+    border-color: white;
+    border-width: 0 0.2em 0.2em 0; /* Thicker line */
+    opacity: 0; /* Hidden by default */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%) rotate(45deg); /* Shifted up slightly */
+    transition: opacity 0.1s ease-in-out;
+}
+
+.isCompletedCheckbox:checked {
+    background-color: #8a6bff;
+    border-color: #8a6bff;
+}
+
+.isCompletedCheckbox:checked::before {
+    opacity: 1;
+}
+
+.editContentInput {
+    flex-grow: 1;
+    background-color: #1a1b2644;
+    border-radius: 4px;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+    border: 1px solid rgb(67, 67, 67);
+}
+.editContentInput:focus {
+    outline: none;
+    border-color: #8a6bff;
+}
+
+.todoContent {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    transition: color 0.2s;
+}
+
+/* --- Completed State Styles --- */
+.todoItem.completed {
+    background-color: #24252e;
+    opacity: 0.7;
+}
+
+.todoItem.completed > .todoContent {
+    text-decoration: line-through;
+    color: #7a7a8c;
+}
+
+/* --- Buttons --- */
+.todoItem > button {
+    opacity: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+.todoItem:hover > button {
+    opacity: 1;
+}
+
+.finishEditButton {
+    opacity: 1;
+}
+.finishEditButton:hover {
+    background-color: #6e6eff;
+}
+
+.deleteTodo:hover {
+    background-color: #e84a4a;
+}
+
+.editTodo:hover {
+    background-color: #ffc800;
+}
+.editTodo:hover > img {
+    filter: invert(1);
+}
+
+img {
+    height: 100%;
+}

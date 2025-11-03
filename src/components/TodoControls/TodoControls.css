@@ -1,0 +1,61 @@
+/* ---------------------------------- */
+/*      Controls Section             */
+/* ---------------------------------- */
+
+.todosControls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.todosControls > .todosInput {
+    flex-grow: 1;
+    padding: 0.75rem;
+    background-color: #2a2c37;
+    border: 2px solid #44475a;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #e0e0e0;
+    transition: border-color 0.2s;
+}
+
+.todosControls > .todosInput::placeholder {
+    color: #7a7a8c;
+}
+
+.todosControls > .todosInput:focus {
+    outline: none;
+    border-color: #8a6bff;
+}
+
+.todosControls > .addTodoButton {
+    padding: 0.75rem 1.5rem;
+    background-color: #8a6bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.todosControls > .addTodoButton:hover {
+    background-color: #7958e8;
+}
+
+.todosControls > .removeAllTodos {
+    padding: 0.75rem 1rem;
+    background-color: transparent;
+    color: #ff5b5b;
+    border: 1px solid #ff5b5b;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.todosControls > .removeAllTodos:hover {
+    background-color: #ff5b5b;
+    color: white;
+}
