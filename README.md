@@ -2,6 +2,8 @@
 
 A sleek, modern, and feature-rich Todo application built with React, TypeScript, and powered by Preact/Signals for efficient state management. The entire application is styled with pure CSS, featuring a dark theme, custom form elements, and smooth transitions.
 
+<img width="503" height="567" alt="screencapture-muhammaddev99-github-io-TodoApp-2025-11-05-00_48_32" src="https://github.com/user-attachments/assets/88b3955c-f007-4311-b79c-6051c7541733" />
+
 ## 🚀 Live Demo
 
 **[Click here to try out the live application!](https://muhammaddev99.github.io/TodoApp/)**
